@@ -1,0 +1,12 @@
+{
+  "name": "@cinatra-ai/code-reviewer-agent",
+  "version": "0.1.3",
+  "license": "Apache-2.0",
+  "description": "Advisory code-quality review helper for /chat agent authoring; checks naming consistency, version bumps, and package metadata completeness. See docs/developer/chat-agent-authoring-review.md.",
+  "type": "module",
+  "cinatra": {
+    "apiVersion": "cinatra.ai/v1",
+    "kind": "agent",
+    "dependencies": []
+  }
+}
