@@ -1,0 +1,29 @@
+# --- Dependencies ---
+node_modules/
+
+# --- Build output (tsc outDir) ---
+dist/
+*.tsbuildinfo
+
+# --- Testing ---
+coverage/
+
+# --- Lockfile (extracted extension repos ship none; CI installs with --no-frozen-lockfile) ---
+pnpm-lock.yaml
+
+# --- Pack artifacts (CI only ever runs `npm pack --dry-run`) ---
+*.tgz
+
+# --- Debug logs ---
+npm-debug.log*
+pnpm-debug.log*
+.pnpm-debug.log*
+
+# --- Env files & secrets ---
+.env
+.env.*
+
+# --- Editor / OS ---
+.vscode/
+.idea/
+.DS_Store
