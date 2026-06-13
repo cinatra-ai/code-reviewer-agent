@@ -1,0 +1,40 @@
+name: truthful-attribution-gate
+# Thin caller for the org-reusable truthful-attribution-gate (cinatra-ai/ci),
+# per the ratified spec cinatra-engineering#119 (re-scopes/supersedes #116).
+#
+# WARN mode (spec section 7 step 6 org-wide rollout): the gate computes presence +
+# anti-fabrication findings and ANNOTATES them; it never fails the check, so this
+# is advisory only and never blocks a PR. No .github/gate-suite.json is committed
+# in this pass (the WARN scope exercises presence + the human arm; the gate-suite
+# arm is not exercised without a committed suite). Per-repo enforce promotion
+# follows each repo's own WARN soak and is out of scope here.
+#
+# Double-pinned: the reusable workflow is pinned to an immutable SHA AND carries
+# the version comment on the `uses:` line below, exactly like the other
+# cinatra-ai/ci gate callers in this repo (e.g. source-leak-gate). The pinned SHA
+# is the engine proven green in cinatra ENFORCE today (the moving ci marker
+# re-pointed to this SHA).
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+  pull-requests: read
+  checks: read
+  # actions:read is required by the re-pinned reusable engine: it resolves a
+  # reusable-workflow check-run to its Actions run (GET /actions/runs/{id}) to
+  # verify referenced_workflows[] at the pinned SHA. A called reusable workflow's
+  # permissions cannot EXCEED the caller's grant, and once a permissions block is
+  # present every omitted scope defaults to `none`, so the caller MUST grant
+  # actions:read or the run fails to start (startup_failure). Do not drop this line.
+  actions: read
+
+jobs:
+  truthful-attribution-gate:                 # caller job id MUST stay this exact string
+    uses: cinatra-ai/ci/.github/workflows/truthful-attribution-gate.yml@8eede1022e835997d94974e4bd6205daf72131a2 # v0.1.0
+    with:
+      mode: warn
+      ref: 8eede1022e835997d94974e4bd6205daf72131a2
