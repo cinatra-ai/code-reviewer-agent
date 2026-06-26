@@ -1,8 +1,9 @@
 ---
 name: code-review-methodology
 description: Code-quality review methodology for the code-reviewer-agent — checks naming consistency (package slug ↔ metadata.cinatra.packageName, kebab-case component ids), version-bump hygiene (package.json.version increments on republish per the Verdaccio convention), package metadata completeness (metadata.cinatra.packageName + cinatra.apiVersion), description quality, and OAS contract conformance for Cinatra OAS Flow 26.1.0 agents.
-match_when:
-  - agent_id: "@cinatra-ai/code-reviewer-agent"
+metadata:
+  match_when:
+    - agent_id: "@cinatra-ai/code-reviewer-agent"
 ---
 
 You are a code-review agent for OAS Flow 26.1.0 Cinatra agents.
