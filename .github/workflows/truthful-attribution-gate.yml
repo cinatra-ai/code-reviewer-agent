@@ -1,6 +1,6 @@
 name: truthful-attribution-gate
 # Thin caller for the org-reusable truthful-attribution-gate (cinatra-ai/ci),
-# per the ratified spec cinatra-engineering#119 (re-scopes/supersedes #116).
+# per the ratified truthful-attribution spec.
 #
 # WARN mode (spec section 7 step 6 org-wide rollout): the gate computes presence +
 # anti-fabrication findings and ANNOTATES them; it never fails the check, so this
