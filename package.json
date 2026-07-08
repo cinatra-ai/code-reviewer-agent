@@ -11,10 +11,20 @@
   "cinatra": {
     "apiVersion": "cinatra.ai/v1",
     "kind": "agent",
+    "displayName": "Code Reviewer Agent",
     "dependencies": [],
     "roles": [
       "agent-code-reviewer"
     ],
-    "consumes": []
+    "consumes": [],
+    "packageType": "agent",
+    "manifestVersion": 1,
+    "sourceTemplateId": "agent-code-reviewer-flow",
+    "sourceVersionId": "25f92c63-72cc-4c84-b1b7-3ed54cc85b73",
+    "sourceVersionNumber": 1,
+    "riskLevel": "low",
+    "hasApprovalGates": false,
+    "toolAccess": [],
+    "ownerOrgId": null
   }
 }
